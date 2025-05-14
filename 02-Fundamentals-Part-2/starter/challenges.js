@@ -20,7 +20,7 @@ const checkWinner = function (avgTeam1, avgTeam2) {
 
 checkWinner(scoreDolphins, scoreKoalas)
 
-*/
+
 
 const calcTip = (bill) => {
     const tip = bill >= 50 && bill <= 200 ? bill * 0.15 : bill * 0.2
@@ -38,3 +38,16 @@ console.log(tips)
 
 const totals = [bills[0] + calcTip(bills[0]), bills[1] + calcTip(bills[1]), bills[2] + calcTip(bills[2])]
 console.log(totals)
+*/
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    },
+}
+
+console.log(mark.calcBMI())

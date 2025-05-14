@@ -135,7 +135,7 @@ console.log(ageA, ageB, ageC, ageD);
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[2]), calcAge(years[3])]
 console.log(ages)
 
-*/
+
 
 // 41. Basic Array Operations (Methods)
 const friends = ['Michael', 'Steven', 'Peter'];
@@ -162,10 +162,110 @@ console.log(friends);
 console.log(friends.indexOf('Steven')); //
 console.log(friends.indexOf('BOOOOB')); // -1 since it is not in the array
 
-// Returns True/ False if elelment in the array, 
+// Returns True/ False if elelment in the array,
 console.log(friends.includes('Steven')); //
 console.log(friends.includes('BOOOOB')); //
 //useful to write conditionals
 if (friends.includes('Steven')) {
     console.log('YOU HAVE A FRIEND CALLED STEVEN')
 }
+
+
+// 43. Introduction to Objects
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'Teacher',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+
+console.log(jonas);
+console.log(jonas.firstName);
+console.log(jonas['lastName']);
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+
+//we dont know the 
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends');
+
+if (jonas[interestedIn]) {
+    console.log(jonas[interestedIn]);
+} else {
+    console.log('Wrong request! Choose between firstName, lastName, age, job, and friends')
+}
+
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtman';
+console.log(jonas)
+
+//challenge 
+// "Jonas has 3 friends, and hos best friend is called Michael"
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
+
+
+*/
+
+// 45. Object Methods
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'Teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    //calcAge: function (birthYear) {
+    //    return 2037 - birthYear;
+    //}
+
+    //calcAge: function () {
+    //    console.log(this)
+    //    return 2037 - this.birthYear;
+    //}
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    }
+};
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+//console.log(jonas['calcAge'](1991));
+
+// Challenge
+// "Jonas is a 46-year old teacher, and he has a/no driver license"
+
+const jonas2 = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'Teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    //calcAge: function (birthYear) {
+    //    return 2037 - birthYear;
+    //}
+
+    //calcAge: function () {
+    //    console.log(this)
+    //    return 2037 - this.birthYear;
+    //}
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, 
+        and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
+    }
+};
+console.log(jonas2.getSummary());
