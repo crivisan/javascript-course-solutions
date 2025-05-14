@@ -89,6 +89,83 @@ function fruitProcessor(apples, oranges) {
 
 console.log(fruitProcessor(2, 3));
 
-*/
+
 
 //40. Introduction to Arrays
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(years[2]);
+
+console.log(years.length);
+console.log(friends[friends.length - 2]);
+
+//mutate the array
+friends[2] = 'Jay'; // still able to change the values, because the arrays are not primitive values
+console.log(friends[2]);
+
+// NOT possible though --> friends = ['assds', 'sdfdf'], not possible to replace the whole array
+
+const firstName = 'Cris'
+const cris = [firstName, 'San', 2037 - 1994, friends]
+console.log(cris)
+
+// Exercise
+const calcAge = function (birthYear) {
+    return 2037 - birthYear
+}
+
+const years2 = [1990, 1967, 2002, 2010, 2018]
+console.log(calcAge(years2)) // --> NaN as result
+
+const ageA = calcAge(years[0]);
+const ageB = calcAge(years[1]);
+const ageC = calcAge(years[years.length - 1]);
+const ageD = calcAge(years[years.length - 2]);
+console.log(ageA, ageB, ageC, ageD);
+
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[2]), calcAge(years[3])]
+console.log(ages)
+
+*/
+
+// 41. Basic Array Operations (Methods)
+const friends = ['Michael', 'Steven', 'Peter'];
+// Push Method --> to add an element at teh end of the array
+friends.push('Jay'); //add an element
+console.log(friends);
+const newLength = friends.push('Charles'); //add element and retrieve new lenght of array
+console.log(friends);
+console.log(newLength);
+// Unshift method --> add elelement at the beginning
+friends.unshift('John');
+console.log(friends);
+
+// Remove Elements
+friends.pop(); // Last Element removed by default
+const popped = friends.pop(); // It does not return the new lenght but the removed element
+console.log(popped);
+console.log(friends);
+
+friends.shift(); // First elelment removed by default, also returns the removed element
+console.log(friends);
+
+// Get the index of a specific element
+console.log(friends.indexOf('Steven')); //
+console.log(friends.indexOf('BOOOOB')); // -1 since it is not in the array
+
+// Returns True/ False if elelment in the array, 
+console.log(friends.includes('Steven')); //
+console.log(friends.includes('BOOOOB')); //
+//useful to write conditionals
+if (friends.includes('Steven')) {
+    console.log('YOU HAVE A FRIEND CALLED STEVEN')
+}

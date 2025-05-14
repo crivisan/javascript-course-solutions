@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 const calcAverage = (score1, score2, score3) => {
     return (score1 + score2 + score3) / 3;
 }
@@ -18,3 +19,22 @@ const checkWinner = function (avgTeam1, avgTeam2) {
 }
 
 checkWinner(scoreDolphins, scoreKoalas)
+
+*/
+
+const calcTip = (bill) => {
+    const tip = bill >= 50 && bill <= 200 ? bill * 0.15 : bill * 0.2
+    return tip
+}
+
+console.log(calcTip(100))
+
+const bills = [125, 555, 44]
+console.log(bills)
+
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+
+console.log(tips)
+
+const totals = [bills[0] + calcTip(bills[0]), bills[1] + calcTip(bills[1]), bills[2] + calcTip(bills[2])]
+console.log(totals)
